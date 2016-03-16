@@ -6,6 +6,7 @@ func insertionSort( var a as array )
             if a[j] < a[j-1]
                 swap a[j] and a[j-1]
 end func
+// O(n^2), because we are running through two loops: an inner loop nested in an outer loop.
 
 Merge Sort:
 
@@ -20,6 +21,10 @@ func mergeSort( var a as array )
 
      return merge( l1, l2 )
 end func
+// O(nlog(n)), the division by two would be noted as O(log(n)), but the actual merge sort casues us 
+// to loop through to merge the array.  That process would be definied as O(n), which is then 
+//multiplied to come up with O(nlog(n)).
+
 
 func merge( var a as array, var b as array )
      var c as array
@@ -39,6 +44,7 @@ func merge( var a as array, var b as array )
           remove b[0] from b
      return c
 end func
+// O(n), there are three while loops in this function, but they are not nested, so ultimately the Big O notation would just be n.
 
 Selection Sort:
 
@@ -64,7 +70,7 @@ for (j = 0; j < n-1; j++) {
         swap(a[j], a[iMin]);
     }
 }
-
+// O(n^2), because we have 2 for loops.  The one finding the new minimum is nested within the one finding the unsorted minimum.
 Quick Sort:
 
 func quicksort(var a as array, var low as int, var high as int){
